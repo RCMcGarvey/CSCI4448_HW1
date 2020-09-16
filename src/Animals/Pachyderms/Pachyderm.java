@@ -1,10 +1,12 @@
-package Animals.Canine;
+package Animals.Pachyderms;
+
+import Animals.Animal;
 
 import java.util.Random;
 
-public class Dog extends Canine {
-    public Dog(String _name) {
-        super(_name, "Dog");
+public class Pachyderm extends Animal {
+    public Pachyderm(String _name, String _type) {
+        super(_name, _type);
     }
 
     public void exercise() {
@@ -13,7 +15,7 @@ public class Dog extends Canine {
         Random random = new Random();
         double r = random.nextDouble();
         if (r <= 0.25) {
-            System.out.println(super.name + " the " + super.type + " digs.");
+            System.out.println(super.name + " the " + super.type + " charges.");
         } else {
             super.exercise();
         }

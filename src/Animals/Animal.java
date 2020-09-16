@@ -1,26 +1,34 @@
 package Animals;
 
 abstract public class Animal {
-
-    Animal(String _name, String _type){
+    public Animal(String _name, String _type) {
         name = _name;
         type = _type;
     }
 
     protected boolean is_asleep;
+    public String name;
+    public String type;
 
-    protected String name;
+    public void makeNoise() {
+        System.out.println(name + " the " + type + " makes noise.");
+    }
 
-    protected String type;
+    public void sleep() {
+        System.out.println(name + " the " + type + " sleeps.");
+        is_asleep = true;
+    }
 
-    void makeNoise() {}
+    public void wakeUp() {
+        System.out.println(name + " the " + type + " wakes up.");
+        is_asleep = false;
+    }
 
-    void sleep() {}
+    public void exercise() {
+        System.out.println(name + " the " + type + " roams.");
+    }
 
-    void wakeUp() {}
-
-    void roam() {}
-
-    void eat() {}
-
+    public void eat() {
+        System.out.println(name + " the " + type + " eats.");
+    }
 }

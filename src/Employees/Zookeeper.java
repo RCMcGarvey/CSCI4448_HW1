@@ -4,7 +4,7 @@ import Animals.Animal;
 
 public class Zookeeper extends ZooEmployee {
     public Zookeeper(int day) {
-        System.out.printf("Zookeeper arrives at Zoo on Day %d.%n", day);
+        System.out.printf("Zookeeper arrives at Zoo on Day %d.%n", day + 1);
     }
 
     public void wakeAnimals(Animal[] animals) {
@@ -35,7 +35,7 @@ public class Zookeeper extends ZooEmployee {
         // Exercise them
         for (Animal animal : animals) {
             System.out.printf("Zookeeper exercises %s the %s.%n", animal.name, animal.type);
-            animal.roam();
+            animal.exercise();
         }
     }
 

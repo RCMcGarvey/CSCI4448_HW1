@@ -3,14 +3,7 @@ package Animals.Canine;
 import Animals.Animal;
 
 public class Canine extends Animal {
-    Canine() {
-        super();
+    public Canine(String _name, String _type) {
+        super(_name, _type);
     }
-
-
-
-    void roam(){
-
-    }
-
 }
