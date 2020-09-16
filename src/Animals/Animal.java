@@ -2,18 +2,25 @@ package Animals;
 
 abstract public class Animal {
 
-    Boolean is_sleep;
+    Animal(String _name, String _type){
+        name = _name;
+        type = _type;
+    }
 
-    String name;
+    protected boolean is_asleep;
 
-    static void makeNoise() {}
+    protected String name;
 
-    static void sleep() {}
+    protected String type;
 
-    static void wakeUp() {}
+    void makeNoise() {}
 
-    static void roam() {}
+    void sleep() {}
 
-    static void eat() {}
+    void wakeUp() {}
+
+    void roam() {}
+
+    void eat() {}
 
 }

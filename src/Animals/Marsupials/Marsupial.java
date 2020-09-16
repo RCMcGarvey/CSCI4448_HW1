@@ -1,4 +1,6 @@
 package Animals.Marsupials;
 
-public class Marsupial {
+import Animals.Animal;
+
+public class Marsupial extends Animal {
 }
