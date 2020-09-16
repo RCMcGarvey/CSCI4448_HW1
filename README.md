@@ -1,5 +1,5 @@
 # CSCI4448_HW1
-Adam Rosa
+Adam Rosa and
 Ryan McGarvey
 
 ## Runing
