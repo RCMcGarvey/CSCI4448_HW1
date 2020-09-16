@@ -14,19 +14,14 @@ import Employees.Zookeeper;
 import java.util.Scanner;
 
 public class Main {
-    public Main() {
-        System.out.println("I'm a main constructor.");
-    }
-
     public static void main(String[] args) {
-        System.out.println("Starting main function...");
-
         // Ask for number of days
         Scanner scanner = new Scanner(System.in);
         System.out.println("Number of days:");
         int days = Integer.parseInt(scanner.nextLine());
 
         // Create a Zoo
+        // Lots of identity below because all these objects are uniquely identified by Java
         Animal[] zoo = new Animal[] {
                 new Dog("Duke"),
                 new Dog("Drummer"),
@@ -50,15 +45,15 @@ public class Main {
                 new Rhino("Rebecca")
         };
 
-        // Create a Zookeeper
-        // Zookeeper zookeeper = new Zookeeper(days);
-
         // Simulate days at the zoo
         for (int day = 0; day < days; day++) {
             // Create a Zookeeper for this day
+            // Another example of identity, this time more temporary!
             Zookeeper zookeeper = new Zookeeper(day);
 
             // Make zookeeper do tasks
+            // Encapsulation because the animals responds to the actions of the zookeeper,
+            //     but from here you wouldn't be able to know that
             zookeeper.wakeAnimals(zoo);
             zookeeper.rollCall(zoo);
             zookeeper.feedAnimals(zoo);

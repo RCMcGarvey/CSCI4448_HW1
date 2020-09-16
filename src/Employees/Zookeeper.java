@@ -8,41 +8,41 @@ public class Zookeeper extends ZooEmployee {
     }
 
     public void wakeAnimals(Animal[] animals) {
-        // Wake up them
         for (Animal animal : animals) {
             System.out.printf("Zookeeper wakes up %s the %s.%n", animal.name, animal.type);
+            // Polymorphism because the appropriate methods of the animals are called
             animal.wakeUp();
         }
     }
 
     public void rollCall(Animal[] animals) {
-        // Roll call them
         for (Animal animal : animals) {
             System.out.printf("Zookeeper excites %s the %s.%n", animal.name, animal.type);
+            // More polymorphism!
             animal.makeNoise();
         }
     }
 
     public void feedAnimals(Animal[] animals) {
-        // Feed them
         for (Animal animal : animals) {
             System.out.printf("Zookeeper feeds %s the %s.%n", animal.name, animal.type);
+            // More polymorphism!
             animal.eat();
         }
     }
 
     public void exerciseAnimals(Animal[] animals) {
-        // Exercise them
         for (Animal animal : animals) {
             System.out.printf("Zookeeper exercises %s the %s.%n", animal.name, animal.type);
+            // More polymorphism!
             animal.exercise();
         }
     }
 
     public void tellAnimalsToSleep(Animal[] animals) {
-        // Tell them to sleep
         for (Animal animal : animals) {
             System.out.printf("Zookeeper puts %s the %s to sleep.%n", animal.name, animal.type);
+            // More polymorphism!
             animal.sleep();
         }
     }

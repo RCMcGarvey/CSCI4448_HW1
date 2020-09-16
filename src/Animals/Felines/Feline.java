@@ -8,6 +8,7 @@ public class Feline extends Animal {
         super(_name, _type);
     }
 
+    // Abstraction because every Feline has the same sleep function
     public void sleep() {
         // Looked at stack overflow in order to see how to get random chance
         // https://stackoverflow.com/questions/22473931/specifying-random-chance
