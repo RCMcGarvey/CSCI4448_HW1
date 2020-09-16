@@ -1,5 +1,5 @@
 import Animals.Animal;
-import Animals.Felines.Feline;
+import Animals.Felines.Cat;
 import Employees.Zookeeper;
 
 import java.util.Scanner;
@@ -18,9 +18,7 @@ public class Main {
         int days = Integer.parseInt(scanner.nextLine());
 
         // Create a Zoo
-        Animal testAnimal = new Feline();
-        testAnimal.name = "Garfield";
-        testAnimal.type = "Cat";
+        Animal testAnimal = new Cat("Garfield", "Cat");
         Animal[] zoo = new Animal[]{testAnimal};
 
         // Create a Zookeeper
