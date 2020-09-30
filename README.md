@@ -14,3 +14,4 @@ Ryan McGarvey
 ## Helpfull Sources
 
 https://www.baeldung.com/java-observer-pattern
+Ken Anderson
