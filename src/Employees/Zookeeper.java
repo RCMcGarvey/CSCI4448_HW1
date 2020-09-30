@@ -1,11 +1,18 @@
 package Employees;
 
 import Animals.Animal;
+import ZooUtil.ZooTimer;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Zookeeper extends ZooEmployee implements ZooTimer {
     private List<Announcer> announcers = new ArrayList<>();
+    private int time;
+
+    @Override
+    public void timeEvent(int time) {
+        this.time = time;
+    }
 
     public Zookeeper(int day) {
         System.out.printf("Zookeeper arrives at Zoo on Day %d.%n", day + 1);
