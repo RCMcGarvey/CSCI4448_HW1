@@ -11,3 +11,7 @@ Observer chains: Observering an observable that is observing a different observa
 ## Assumptions
 Our observer structures are simple enough where we do not need to implement subject interfaces. \
 Drop bears are real and not a joke.
+
+## Helpful Sources
+https://www.baeldung.com/java-observer-pattern \
+Ken Anderson
