@@ -10,3 +10,7 @@ Ryan McGarvey
   
 ## Assumptions
   Drop bears are real and not a joke. 
+  
+## Helpfull Sources
+
+https://www.baeldung.com/java-observer-pattern
