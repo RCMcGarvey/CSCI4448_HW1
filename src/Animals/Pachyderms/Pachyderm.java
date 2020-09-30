@@ -1,12 +1,16 @@
 package Animals.Pachyderms;
 
 import Animals.Animal;
+import Animals.MakeNoiseStrategy.MakeNoiseStrategy;
+import Animals.MakeNoiseStrategy.MakeNoiseStrategy2;
 
 import java.util.Random;
 
 public class Pachyderm extends Animal {
     public Pachyderm(String _name, String _type) {
         super(_name, _type);
+        MakeNoiseStrategy makeNoiseStrategy2 = new MakeNoiseStrategy2();
+        super.setMakeNoiseStrategy(makeNoiseStrategy2);
     }
 
     // Abstraction because every Pachyderm has the same exercise function

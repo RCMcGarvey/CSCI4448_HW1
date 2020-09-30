@@ -1,11 +1,16 @@
 package Animals.Felines;
 
 import Animals.Animal;
+import Animals.MakeNoiseStrategy.MakeNoiseStrategy;
+import Animals.MakeNoiseStrategy.MakeNoiseStrategy1;
+
 import java.util.Random;
 
 public class Feline extends Animal {
     public Feline(String _name, String _type) {
         super(_name, _type);
+        MakeNoiseStrategy makeNoiseStrategy1 = new MakeNoiseStrategy1();
+        super.setMakeNoiseStrategy(makeNoiseStrategy1);
     }
 
     // Abstraction because every Feline has the same sleep function

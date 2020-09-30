@@ -1,32 +1,41 @@
 package Animals;
 
+import Animals.MakeNoiseStrategy.MakeNoiseStrategy;
+
 // Abstract class
 abstract public class Animal {
+
     public Animal(String _name, String _type) {
         name = _name;
         type = _type;
     }
 
-    // is_asleep is encapsulated because it is only reachable by this class and its subclasses
-    protected boolean is_asleep;
     public String name;
     public String type;
+    private MakeNoiseStrategy makeNoiseStrategy;
 
-    // Abstraction because subclasses might override this function
-    public void makeNoise() {
-        System.out.println(name + " the " + type + " makes noise.");
+    // Set the strategy for making noise
+    public void setMakeNoiseStrategy(MakeNoiseStrategy strategy) {
+        makeNoiseStrategy = strategy;
     }
 
-    // Abstraction again!
+    // Strategy pattern
+    public void makeNoise() {
+        makeNoiseStrategy.operation(name, type);
+    }
+
+//    public void makeNoise() {
+//        System.out.println(name + " the " + type + " makes noise.");
+//    }
+
+    // Abstraction because subclasses might override this function
     public void sleep() {
         System.out.println(name + " the " + type + " sleeps.");
-        is_asleep = true;
     }
 
     // Abstraction again!
     public void wakeUp() {
         System.out.println(name + " the " + type + " wakes up.");
-        is_asleep = false;
     }
 
     // Abstraction again!
