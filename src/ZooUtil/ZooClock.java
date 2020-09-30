@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZooClock {
-    List<ZooTimer> timers = new ArrayList<>();
+    private List<ZooTimer> timers = new ArrayList<>();
 
     public void addObserver(ZooTimer timer) {
         this.timers.add(timer);
