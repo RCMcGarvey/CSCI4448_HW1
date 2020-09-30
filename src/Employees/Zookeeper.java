@@ -4,7 +4,7 @@ import Animals.Animal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Zookeeper extends ZooEmployee {
+public class Zookeeper extends ZooEmployee implements Timer {
     private List<Announcer> announcers = new ArrayList<>();
 
     public Zookeeper(int day) {
