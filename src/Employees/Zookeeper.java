@@ -8,14 +8,28 @@ import java.util.List;
 public class Zookeeper extends ZooEmployee implements ZooTimer {
     private List<Announcer> announcers = new ArrayList<>();
     private int time;
+    private Animal[] animals;
+
 
     @Override
     public void timeEvent(int time) {
         this.time = time;
+        if(time == 8){
+            wakeAnimals();
+        } else if(time == 10) {
+            rollCall();
+        } else if(time == 13) {
+            feedAnimals();
+        } else if(time == 15) {
+            exerciseAnimals();
+        } else if(time == 20) {
+            tellAnimalsToSleep();
+        }
     }
 
-    public Zookeeper(int day) {
+    public Zookeeper(int day, Animal[] zoo) {
         System.out.printf("Zookeeper arrives at Zoo on Day %d.%n", day + 1);
+        this.animals = zoo;
     }
 
     public void addObserver(Announcer announcer) {
@@ -32,7 +46,7 @@ public class Zookeeper extends ZooEmployee implements ZooTimer {
         }
     }
 
-    public void wakeAnimals(Animal[] animals) {
+    private void wakeAnimals() {
         doTask("wake the animals!");
         for (Animal animal : animals) {
             System.out.printf("Zookeeper wakes up %s the %s.%n", animal.name, animal.type);
@@ -41,7 +55,7 @@ public class Zookeeper extends ZooEmployee implements ZooTimer {
         }
     }
 
-    public void rollCall(Animal[] animals) {
+    private void rollCall() {
         doTask("roll call the animals!");
         for (Animal animal : animals) {
             System.out.printf("Zookeeper excites %s the %s.%n", animal.name, animal.type);
@@ -50,7 +64,7 @@ public class Zookeeper extends ZooEmployee implements ZooTimer {
         }
     }
 
-    public void feedAnimals(Animal[] animals) {
+    private void feedAnimals() {
         doTask("feed the animals!");
         for (Animal animal : animals) {
             System.out.printf("Zookeeper feeds %s the %s.%n", animal.name, animal.type);
@@ -59,7 +73,7 @@ public class Zookeeper extends ZooEmployee implements ZooTimer {
         }
     }
 
-    public void exerciseAnimals(Animal[] animals) {
+    private void exerciseAnimals() {
         doTask("exercise the animals!");
         for (Animal animal : animals) {
             System.out.printf("Zookeeper exercises %s the %s.%n", animal.name, animal.type);
@@ -68,7 +82,7 @@ public class Zookeeper extends ZooEmployee implements ZooTimer {
         }
     }
 
-    public void tellAnimalsToSleep(Animal[] animals) {
+    private void tellAnimalsToSleep() {
         doTask("put the animals to sleep!");
         for (Animal animal : animals) {
             System.out.printf("Zookeeper puts %s the %s to sleep.%n", animal.name, animal.type);

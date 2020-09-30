@@ -50,7 +50,7 @@ public class Main {
         for (int day = 0; day < days; day++) {
             // Create a Zookeeper for this day
             // Another example of identity, this time more temporary
-            Zookeeper zookeeper = new Zookeeper(day);
+            Zookeeper zookeeper = new Zookeeper(day, zoo);
             ZooAnnouncer zooAnnouncer = new ZooAnnouncer();
             zookeeper.addObserver(zooAnnouncer);
 
