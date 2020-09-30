@@ -1,35 +1,40 @@
 package Employees;
 
 import Animals.Animal;
+import ZooUtil.Announcer;
 import ZooUtil.ZooTimer;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Zookeeper extends ZooEmployee implements ZooTimer {
     private List<Announcer> announcers = new ArrayList<>();
-    private int time;
+    private int day;
     private Animal[] animals;
 
+    public Zookeeper(Animal[] zoo) {
+        super("Zookeeper");
+        this.animals = zoo;
+    }
 
     @Override
     public void timeEvent(int time) {
-        this.time = time;
-        if(time == 8){
+        // Encapsulation because the animals responds to the actions of the zookeeper,
+        //     but from here you wouldn't be able to know that
+        if (time == 8) {
+            arriveAtZoo();
+        } else if (time == 9) {
             wakeAnimals();
-        } else if(time == 10) {
+        } else if (time == 10) {
             rollCall();
-        } else if(time == 13) {
+        } else if (time == 13) {
             feedAnimals();
-        } else if(time == 15) {
+        } else if (time == 15) {
             exerciseAnimals();
-        } else if(time == 20) {
+        } else if (time == 19) {
             tellAnimalsToSleep();
+        } else if (time == 20) {
+            leaveZoo();
         }
-    }
-
-    public Zookeeper(int day, Animal[] zoo) {
-        System.out.printf("Zookeeper arrives at Zoo on Day %d.%n", day + 1);
-        this.animals = zoo;
     }
 
     public void addObserver(Announcer announcer) {
@@ -42,12 +47,20 @@ public class Zookeeper extends ZooEmployee implements ZooTimer {
 
     private void doTask(String task) {
         for (Announcer announcer : this.announcers) {
-            announcer.announce(task);
+            announcer.announce("Zookeeper", task);
         }
     }
 
+    public void setDay(int day) {
+        this.day = day + 1;
+    }
+
+    public void arriveAtZoo() {
+        System.out.printf("Zookeeper arrives at the Zoo on Day %d.%n", this.day);
+    }
+
     private void wakeAnimals() {
-        doTask("wake the animals!");
+        doTask("wake up the animals!");
         for (Animal animal : animals) {
             System.out.printf("Zookeeper wakes up %s the %s.%n", animal.name, animal.type);
             // Polymorphism because the appropriate methods of the animals are called

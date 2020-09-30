@@ -10,8 +10,12 @@ import Animals.Pachyderms.Elephant;
 import Animals.Pachyderms.Hippo;
 import Animals.Pachyderms.Rhino;
 import Employees.ZooAnnouncer;
+import Employees.ZooFoodServer;
 import Employees.Zookeeper;
+import ZooUtil.ZooClock;
+import ZooUtil.ZooTimer;
 
+import java.time.zone.ZoneRulesProvider;
 import java.util.Scanner;
 
 public class Main {
@@ -46,25 +50,35 @@ public class Main {
                 new Rhino("Rebecca")
         };
 
+        // Create objects
+        ZooClock zooClock = new ZooClock();
+        Zookeeper zookeeper = new Zookeeper(zoo);
+        ZooAnnouncer zooAnnouncer = new ZooAnnouncer();
+        ZooFoodServer zooFoodServer = new ZooFoodServer();
+
+        // Connect observers
+        zookeeper.addObserver(zooAnnouncer);
+        zooFoodServer.addObserver(zooAnnouncer);
+        zooClock.addObserver(zookeeper);
+        zooClock.addObserver(zooFoodServer);
+        zooClock.addObserver(zooAnnouncer);
+
         // Simulate days at the zoo
         for (int day = 0; day < days; day++) {
-            // Create a Zookeeper for this day
-            // Another example of identity, this time more temporary
-            Zookeeper zookeeper = new Zookeeper(day, zoo);
-            ZooAnnouncer zooAnnouncer = new ZooAnnouncer();
-            zookeeper.addObserver(zooAnnouncer);
+            // Set the day for the Zookeeper
+            //     This is an unimportant feature, but it was in the requirements for Project 1,
+            //     so we included it again in Project 2.
+            zookeeper.setDay(day);
 
-            // Make zookeeper do tasks
-            // Encapsulation because the animals responds to the actions of the zookeeper,
-            //     but from here you wouldn't be able to know that
-            zookeeper.wakeAnimals(zoo);
-            zookeeper.rollCall(zoo);
-            zookeeper.feedAnimals(zoo);
-            zookeeper.exerciseAnimals(zoo);
-            zookeeper.tellAnimalsToSleep(zoo);
-
-            // ZooAnnouncer leaves
-            zookeeper.removeObserver(zooAnnouncer);
+            // Run the clock for the day
+            zooClock.runClock();
         }
+
+        // Disconnect observers
+        zookeeper.removeObserver(zooAnnouncer);
+        zooFoodServer.removeObserver(zooAnnouncer);
+        zooClock.removeObserver(zookeeper);
+        zooClock.removeObserver(zooFoodServer);
+        zooClock.removeObserver(zooAnnouncer);
     }
 }
