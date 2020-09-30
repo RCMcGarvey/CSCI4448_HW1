@@ -1,11 +1,15 @@
 package Employees;
 
 import Animals.Animal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Zookeeper extends ZooEmployee {
-    public Zookeeper(int day) {
+    public Zookeeper(int day, ZooAnnouncer announcer) {
+
         System.out.printf("Zookeeper arrives at Zoo on Day %d.%n", day + 1);
     }
+    public List<Anouncement> events = new ArrayList<>();
 
     public void wakeAnimals(Animal[] animals) {
         for (Animal animal : animals) {
@@ -17,6 +21,7 @@ public class Zookeeper extends ZooEmployee {
 
     public void rollCall(Animal[] animals) {
         for (Animal animal : animals) {
+
             System.out.printf("Zookeeper excites %s the %s.%n", animal.name, animal.type);
             // More polymorphism!
             animal.makeNoise();
@@ -24,6 +29,7 @@ public class Zookeeper extends ZooEmployee {
     }
 
     public void feedAnimals(Animal[] animals) {
+
         for (Animal animal : animals) {
             System.out.printf("Zookeeper feeds %s the %s.%n", animal.name, animal.type);
             // More polymorphism!
@@ -32,6 +38,7 @@ public class Zookeeper extends ZooEmployee {
     }
 
     public void exerciseAnimals(Animal[] animals) {
+
         for (Animal animal : animals) {
             System.out.printf("Zookeeper exercises %s the %s.%n", animal.name, animal.type);
             // More polymorphism!
@@ -40,6 +47,7 @@ public class Zookeeper extends ZooEmployee {
     }
 
     public void tellAnimalsToSleep(Animal[] animals) {
+
         for (Animal animal : animals) {
             System.out.printf("Zookeeper puts %s the %s to sleep.%n", animal.name, animal.type);
             // More polymorphism!

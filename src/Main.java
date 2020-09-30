@@ -9,6 +9,7 @@ import Animals.Marsupials.Koala;
 import Animals.Pachyderms.Elephant;
 import Animals.Pachyderms.Hippo;
 import Animals.Pachyderms.Rhino;
+import Employees.ZooAnnouncer;
 import Employees.Zookeeper;
 
 import java.util.Scanner;
@@ -48,8 +49,9 @@ public class Main {
         // Simulate days at the zoo
         for (int day = 0; day < days; day++) {
             // Create a Zookeeper for this day
-            // Another example of identity, this time more temporary!
-            Zookeeper zookeeper = new Zookeeper(day);
+            // Another example of identity, this time more temporary
+            ZooAnnouncer announcer = new ZooAnnouncer();
+            Zookeeper zookeeper = new Zookeeper(day, announcer);
 
             // Make zookeeper do tasks
             // Encapsulation because the animals responds to the actions of the zookeeper,
