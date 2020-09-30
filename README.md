@@ -2,8 +2,8 @@
 Adam Rosa and
 Ryan McGarvey
 
-For different projects, see the links below:
-Project 1: https://github.com/RCMcGarvey/CSCI4448_HW1/tree/master
+For different projects, see the links below: \
+Project 1: https://github.com/RCMcGarvey/CSCI4448_HW1/tree/master \
 Project 2: https://github.com/RCMcGarvey/CSCI4448_HW1/tree/hw2
 
 # Project 1
