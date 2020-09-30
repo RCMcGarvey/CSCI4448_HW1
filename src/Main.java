@@ -50,8 +50,9 @@ public class Main {
         for (int day = 0; day < days; day++) {
             // Create a Zookeeper for this day
             // Another example of identity, this time more temporary
-            ZooAnnouncer announcer = new ZooAnnouncer();
-            Zookeeper zookeeper = new Zookeeper(day, announcer);
+            Zookeeper zookeeper = new Zookeeper(day);
+            ZooAnnouncer zooAnnouncer = new ZooAnnouncer();
+            zookeeper.addObserver(zooAnnouncer);
 
             // Make zookeeper do tasks
             // Encapsulation because the animals responds to the actions of the zookeeper,
@@ -61,6 +62,9 @@ public class Main {
             zookeeper.feedAnimals(zoo);
             zookeeper.exerciseAnimals(zoo);
             zookeeper.tellAnimalsToSleep(zoo);
+
+            // ZooAnnouncer leaves
+            zookeeper.removeObserver(zooAnnouncer);
         }
     }
 }
